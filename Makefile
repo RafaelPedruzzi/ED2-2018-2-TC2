@@ -17,13 +17,13 @@ IN = ../in
 
 all: $(BIN)trab2
 
-$(BIN)trab2: main.o wortFit.o bestFit.o heap.o bst.o
+$(BIN)trab2: main.o worstFit.o bestFit.o heap.o bst.o
 	$(CC) -o $@ $^ $(CFLAGS)
 
 main.o: $(SRC)main.c
 	$(CC) -c $^ $(CFLAGS)
 
-wortFit.o: $(SRC)wortFit.c
+worstFit.o: $(SRC)worstFit.c
 	$(CC) -c $^ $(CFLAGS)
 
 bestFit.o: $(SRC)bestFit.c

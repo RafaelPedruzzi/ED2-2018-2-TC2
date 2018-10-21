@@ -3,3 +3,8 @@
 // Rafael Belmock Pedruzzi
 //
 // bst.c: binary search tree implementation
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "../inc/bst.h"

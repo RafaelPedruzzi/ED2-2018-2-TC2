@@ -3,3 +3,9 @@
 // Rafael Belmock Pedruzzi
 //
 // worstFit.c: worst fit and decreasing worst fit implementations
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "../inc/heap.h"
+
+#include "../inc/worstFit.h"
