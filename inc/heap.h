@@ -4,20 +4,20 @@
 //
 // heap.h: heap definitions
 
-#ifndef HEAP_H
+#ifndef HEAP_H_
 
-#define HEAP_H
+#define HEAP_H_
 
 /**
  * Struct that implements a heap
  * 
- * Size = heap's actual length
- * h = heap's elements
- * Ps: h[0] stores the heap's max size
+ * Size = heap's current length
+ * contents = heap's contents
+ * Ps: contents[0] stores the heap's max size
 */
 typedef struct{
     int size;
-    int *h;
+    int *contents;
 } Heap;
 
 /**

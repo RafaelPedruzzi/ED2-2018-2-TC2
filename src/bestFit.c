@@ -8,4 +8,4 @@
 #include <stdlib.h>
 #include "../inc/bst.h"
 
-#include "bestFit.h"
+#include "../inc/bestFit.h"

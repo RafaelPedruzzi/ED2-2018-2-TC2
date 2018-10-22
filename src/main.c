@@ -10,21 +10,26 @@
 #include "../inc/worstFit.h"
 #include "../inc/bestFit.h"
 
+int compare(const void *a, const void *b);
+
 int main(int argc, char *argv[])
 {
     int i;                              // Incrementation variable
     int mimDisks=0;
     int numberOfElements;               // Number os elements in the problem
     int *values;                        // Array with all elements
+    int *sorted;                       // Array with all elements sorted
     int wf, bf, dwf, dbf;               // Number of utilized disks for each heuristic
     FILE *input = fopen(argv[1],"r");   // Input file containing the problem's elements
 
     fscanf(input, "%d", &numberOfElements); // Reading the number of elements
 
-    values = malloc(numberOfElements*sizeof(int));  // Allocating the vaues array
+    values = malloc(numberOfElements*sizeof(int));  // Allocating the values array
+    sorted = malloc(numberOfElements*sizeof(int));  // Allocating the sorted values array
 
-    for(i = 0; i < numberOfElements; i++) { // Storing each value in the array
+    for(i = 0; i < numberOfElements; i++) { // Storing each value in the arrays
         fscanf(input, "%d", &values[i]);
+        sorted[i] = values[i];
         mimDisks += values[i];
     }
 
@@ -32,17 +37,17 @@ int main(int argc, char *argv[])
 
     fclose(input);  // Closing input file
 
-    
+    qsort(sorted, numberOfElements, sizeof(int), compare); // Sorting the 'sorted' array
 
     time_t start = clock();
 
-    // wf = 
+    wf = worstFit(values, numberOfElements);
 
-    // bf = 
+    bf = 0;
 
-    // dwf = 
+    dwf = worstFit(sorted, numberOfElements);
 
-    // dbf = 
+    dbf = 0;
 
     time_t end = clock();
 
@@ -50,5 +55,15 @@ int main(int argc, char *argv[])
 
     printf("%d\n%d\n%d\n%d\nTime = %f", wf, bf, dwf, dbf, totalTime);
 
+    free(values);
+    free(sorted);
+
     return 0;
+}
+
+int compare(const void *a, const void *b)
+{
+    const int *ia = (const int *)a; // casting pointer types 
+    const int *ib = (const int *)b;
+    return *ia  - *ib; 
 }
