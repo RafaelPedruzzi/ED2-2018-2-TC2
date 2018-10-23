@@ -13,7 +13,7 @@
  * 
  * input: array with values and number of values
  * output: number of disks needed
- * Post-condition: input array unchanged
+ * post-condition: input array unchanged
 */
 int worstFit(int *values, int nValues);
 
