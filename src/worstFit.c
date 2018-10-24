@@ -14,6 +14,7 @@
 int worstFit(int *values, int nValues)
 {
     Heap *h = heap_Init(nValues);
+    int ret;
 
     heap_Insert(h, DISK - values[0]);
     for(int i = 1; i < nValues; i++) {
@@ -25,7 +26,9 @@ int worstFit(int *values, int nValues)
         }
     }
 
+    ret = h->size;
+
     heap_Destroy(h);
 
-    return h->size;
+    return ret;
 }
