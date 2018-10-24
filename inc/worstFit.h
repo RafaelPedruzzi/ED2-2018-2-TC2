@@ -8,11 +8,14 @@
 
 #define WORSTFIT_H_
 
+#define DISK 1000000
+
 /**
- * Worst fit heuristic function
+ * Function that implements the worst fit heuristic
  * 
- * input: array with values and number of values
+ * input: array of integers and the it's lenght
  * output: number of disks needed
+ * pre-condition: array not empty
  * post-condition: input array unchanged
 */
 int worstFit(int *values, int nValues);

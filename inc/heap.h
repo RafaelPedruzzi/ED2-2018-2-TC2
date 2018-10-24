@@ -15,7 +15,8 @@
  * contents = heap's contents
  * Ps: contents[0] stores the heap's max size
 */
-typedef struct{
+typedef struct
+{
     int size;
     int *contents;
 } Heap;

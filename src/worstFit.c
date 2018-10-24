@@ -10,8 +10,6 @@
 
 #include "../inc/worstFit.h"
 
-#define DISK 1000000
-
 // Worst fit heuristic function
 int worstFit(int *values, int nValues)
 {
