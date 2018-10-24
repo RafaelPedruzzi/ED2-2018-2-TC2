@@ -25,5 +25,7 @@ int worstFit(int *values, int nValues)
         }
     }
 
+    heap_Destroy(h);
+
     return h->size;
 }
