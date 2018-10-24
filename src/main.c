@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 
     double totalTime = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-    printf("%d\n%d\n%d\n%d\nTime = %f", wf, bf, dwf, dbf, totalTime);
+    printf("%d\n%d\n%d\n%d\nTime = %f\n", wf, bf, dwf, dbf, totalTime);
 
     return 0;
 }
