@@ -65,5 +65,7 @@ int bestFit(int *values, int nValues)
         }
     }
 
+    bst_Destroy(bst);
+
     return nDisks;
 }
