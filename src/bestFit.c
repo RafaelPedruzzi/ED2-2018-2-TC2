@@ -25,7 +25,7 @@ int bestFit(int *values, int nValues)
         value = values[i];
         possibleDisk = NULL;
         target = bst;
-        printf("%d %d\r", nDisks, i);
+        //printf("%d %d\r", nDisks, i);
 
         while (target != NULL)
         {
@@ -63,7 +63,7 @@ int bestFit(int *values, int nValues)
         }
     }
 
-    printf("\n");
+    //printf("\n");
 
     bst_Destroy(bst);
 

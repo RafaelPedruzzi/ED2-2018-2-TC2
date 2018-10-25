@@ -38,8 +38,8 @@ void heap_Destroy(Heap *h)
 //Function that insert a element in a given Heap
 void heap_Insert(Heap *h, int value)
 {
-    if (h->size == h->contents[0])
-    { // Aborting function if heap is full
+    if (h->size == h->contents[0]) // Aborting function if heap is full
+    {
         return;
     }
     int i = ++h->size;      // Increasing heap's current size
@@ -65,13 +65,13 @@ int heap_RemoveMax(Heap *h)
 //Function that fix upward the position of a element on a given index
 void heap_FixUp(Heap *h, int index)
 {
-    if (h->size < index)
-    { // Aborting the program if index is bigger than heap's current size
+    if (h->size < index) // Aborting the program if index is bigger than heap's current size
+    {
         printf("Error: invalid index!\n");
         exit(1);
     }
-    while (index / 2 > 0 && h->contents[index] > h->contents[index / 2])
-    {                                                           // While root is smaler than element exchange them
+    while (index / 2 > 0 && h->contents[index] > h->contents[index / 2]) // While root is smaler than element exchange them
+    {
         exch(&(h->contents[index]), &(h->contents[index / 2])); // Exchanging
         index = index / 2;                                      // Updating index
     }
@@ -80,16 +80,16 @@ void heap_FixUp(Heap *h, int index)
 //Function that fix downward the position of a element on a given index
 void heap_FixDown(Heap *h, int index)
 {
-    int k; // Auxiliar variable
-    while (index * 2 <= h->size)
-    {                  // While children belong to the heap:
-        k = index * 2; // Seting auxiliar as left children
-        if (k < h->size && h->contents[k] < h->contents[k + 1])
-        { // Selecting biggest children
+    int k;                       // Auxiliar variable
+    while (index * 2 <= h->size) // While children belong to the heap:
+    {
+        k = index * 2;                                          // Seting auxiliar as left children
+        if (k < h->size && h->contents[k] < h->contents[k + 1]) // Selecting biggest children
+        {
             k++;
         }
-        if (h->contents[k] <= h->contents[index])
-        { // Break loop if biggest children is lower or equal it's root
+        if (h->contents[k] <= h->contents[index]) // Break loop if biggest children is lower or equal it's root
+        {
             break;
         }
         exch(&(h->contents[k]), &(h->contents[index])); // Else, exchange them

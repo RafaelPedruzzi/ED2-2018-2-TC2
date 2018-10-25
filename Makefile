@@ -5,7 +5,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -lm -g
+CFLAGS = -Wall -Wextra -lm -g -O2
 
 SRC = src/
 
