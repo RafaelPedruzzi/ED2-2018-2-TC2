@@ -51,7 +51,7 @@ Tree *bst_Insert(Tree *root, int value);
  * pre-condition: root contais the target
  * post-condition: target removed from the root tree
 */
-Tree *bst_Remove(Tree *root, Tree *target);
+Tree *bst_Remove(Tree *root, int value);
 
 /**
  * Function that search a given value from a given root Tree

@@ -16,7 +16,7 @@ int bestFit(int *values, int nValues)
     Tree *bst = bst_Init();
     Tree *possibleDisk;
     Tree *target;
-    int value, sum, nDisks=0;
+    int value, sum, nDisks = 0;
 
     //bst_Insert(bst, values[0]);
 
@@ -25,6 +25,7 @@ int bestFit(int *values, int nValues)
         value = values[i];
         possibleDisk = NULL;
         target = bst;
+        printf("%d %d\r", nDisks, i);
 
         while (target != NULL)
         {
@@ -34,21 +35,18 @@ int bestFit(int *values, int nValues)
                 possibleDisk = target;
                 break;
             }
+            if (sum > DISK)
+            {
+                target = target->left;
+            }
             else
             {
-                if(sum > DISK)
-                {
-                    target = target->left;
-                }
-                else
-                {
-                    possibleDisk = target;
-                    target = target->right;
-                }
+                possibleDisk = target;
+                target = target->right;
             }
         }
 
-        if(possibleDisk == NULL)
+        if (possibleDisk == NULL)
         {
             bst = bst_Insert(bst, value);
             nDisks++;
@@ -58,12 +56,14 @@ int bestFit(int *values, int nValues)
         else
         {
             value += possibleDisk->info;
-            bst = bst_Remove(bst, possibleDisk);
-            bst_Insert(bst, value);
+            bst = bst_Remove(bst, possibleDisk->info);
+            bst = bst_Insert(bst, value);
             //bst_Print(bst);
             //printf("\n");
         }
     }
+
+    printf("\n");
 
     bst_Destroy(bst);
 

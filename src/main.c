@@ -14,7 +14,7 @@ int compare(const void *a, const void *b);
 
 int main(int argc, char *argv[])
 {
-    int i;                             // Incrementation variable
+    int i; // Incrementation variable
     long long int mimDisks = 0;
     int numberOfElements;              // Number os elements in the problem
     int *values;                       // Array with all elements

@@ -40,11 +40,15 @@ Tree *bst_Insert(Tree *root, int value)
     return root;
 }
 
-Tree *bst_Remove(Tree *root, Tree *target)
+Tree *bst_Remove(Tree *root, int value)
 {
     if (root == NULL)
         return NULL;
-    if (root == target)
+    else if (root->info > value)
+        root->left = bst_Remove(root->left, value);
+    else if (root->info < value)
+        root->right = bst_Remove(root->right, value);
+    else
     {
         /* achou o nó a remover */
         /* nó sem filhos */
@@ -71,7 +75,6 @@ Tree *bst_Remove(Tree *root, Tree *target)
         else
         {
             Tree *f = root->left;
-            int value = root->info;
             while (f->right != NULL)
             {
                 f = f->right;
@@ -79,13 +82,9 @@ Tree *bst_Remove(Tree *root, Tree *target)
             root->info = f->info;
             /* troca as informações */
             f->info = value;
-            root->left = bst_Remove(root->left, f);
+            root->left = bst_Remove(root->left, value);
         }
     }
-    else if (root->info < target->info)
-        root->right = bst_Remove(root->right, target);
-    else
-        root->left = bst_Remove(root->left, target);
     return root;
 }
 
