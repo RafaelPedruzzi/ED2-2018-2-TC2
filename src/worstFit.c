@@ -30,5 +30,5 @@ int worstFit(int *values, int nValues)
 
     heap_Destroy(h);    // Freeing the heap
 
-    return nDisks;
+    return nDisks;  // Returning the number of disks needed
 }

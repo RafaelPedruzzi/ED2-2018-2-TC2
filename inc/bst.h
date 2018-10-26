@@ -44,7 +44,7 @@ void bst_Destroy(Tree *root);
 Tree *bst_Insert(Tree *root, int value);
 
 /**
- * Function that removes a given Tree from a given root Tree
+ * Function that removes a Tree that contains a given value from a given root Tree
  * 
  * inputs: root tree and the target tree
  * output: root tree without the target
@@ -54,7 +54,7 @@ Tree *bst_Insert(Tree *root, int value);
 Tree *bst_Remove(Tree *root, int value);
 
 /**
- * Function that search a given value from a given root Tree
+ * Function that search a given value from a given Tree
  * 
  * inputs: root tree and value
  * output: pointer to the Tree that contains the value
