@@ -15,8 +15,8 @@
  * 
  * input: array of integers and the it's lenght
  * output: number of disks needed
- * pre-condition: array not empty
- * post-condition: input array unchanged
+ * pre condition: array not empty
+ * post condition: input array unchanged
 */
 int worstFit(int *values, int nValues);
 

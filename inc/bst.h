@@ -7,13 +7,13 @@
 /**
  * Struct that implements a tree
  * 
- * info = tree's object
+ * value = tree's object (integer)
  * left = tree's left branch
  * right = tree's right branch
 */
 typedef struct tree
 {
-    int info;
+    int value;
     struct tree *left;
     struct tree *right;
 } Tree;
@@ -22,7 +22,7 @@ typedef struct tree
  * Function that initialize a new tree
  * 
  * output: a new Tree pointer
- * post-condition: tree is empty
+ * post condition: tree is empty
 */
 Tree *bst_Init(void);
 
@@ -30,7 +30,7 @@ Tree *bst_Init(void);
  * Funtion that destroys a given Tree
  * 
  * input: the tree that will be destroyed
- * post-condition: Tree freed from the memory
+ * post condition: Tree freed from the memory
 */
 void bst_Destroy(Tree *root);
 
@@ -39,7 +39,7 @@ void bst_Destroy(Tree *root);
  * 
  * inputs: pointer to the tree and value to be inserted
  * output: the tree with the new value inserted
- * post-condition: tree contains the value on a new leaf
+ * post condition: tree contains the value on a new leaf
 */
 Tree *bst_Insert(Tree *root, int value);
 
@@ -48,8 +48,8 @@ Tree *bst_Insert(Tree *root, int value);
  * 
  * inputs: root tree and the target tree
  * output: root tree without the target
- * pre-condition: root contais the target
- * post-condition: target removed from the root tree
+ * pre condition: root contais the target
+ * post condition: target removed from the root tree
 */
 Tree *bst_Remove(Tree *root, int value);
 
@@ -58,9 +58,15 @@ Tree *bst_Remove(Tree *root, int value);
  * 
  * inputs: root tree and value
  * output: pointer to the Tree that contains the value
- * pre-condition: root contais the value in at leas one of it's trees
- * post-condition: Tree unchanged
+ * pre condition: root contais the value in at leas one of it's trees
+ * post condition: Tree unchanged
 */
 Tree *bst_Search(Tree *root, int value);
 
+/**
+ * Function that prints a given tree
+ * 
+ * input: Tree to be printed
+ * post condition: Tree unchanged
+*/
 void bst_Print(Tree *root);
