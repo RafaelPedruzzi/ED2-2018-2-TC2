@@ -38,7 +38,10 @@ Tree *bst_Insert(Tree *root, int value)
         root = (Tree *)malloc(sizeof(Tree));            // Allocates a new Tree.
         root->value = value;                            // Set new Tree's value.
         root->left = root->right = NULL;                // Set branches as null.
+        root->amount = 1;
     }
+    //else if (value == root->value)
+    //    root->amount++;
     else if (value < root->value)                       // Else, if the value is smaller than root's value.
         root->left = bst_Insert(root->left, value);     // It will be inserted in the left branch.
     else
@@ -57,7 +60,11 @@ Tree *bst_Remove(Tree *root, int value)
         root->right = bst_Remove(root->right, value);   // It will be removed from the root's right branch.
     else                                                // Else, root's value is equal to the value and the target to be removed.
     {
-        if (root->left == NULL && root->right == NULL)  // If both branches are null:
+        /*if (root->amount > 1)
+        {
+            root->amount--;
+        }
+        else*/ if (root->left == NULL && root->right == NULL)  // If both branches are null:
         {
             free(root);                                 // Frees the root tree.
             root = NULL;                                // Set return value as null.
@@ -107,7 +114,7 @@ void bst_Print(Tree *root)
     printf(" [");                       // Printing '['.
     if (root != NULL)                   // Printing tree if it is not null.
     {
-        printf(" %d ", root->value);    // Printing root's value.
+        printf(" %dx%d ", root->value, root->amount);    // Printing root's value.
         bst_Print(root->left);          // Printing root's left branch.
         bst_Print(root->right);         // Printing root's right branch.
     }
