@@ -6,8 +6,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "../inc/bst.h"
+
+bool changeHigth;   // Auxiliar variable used for auto-balance the tree
 
 // Function that initialize a new tree.
 Tree *bst_Init(void)

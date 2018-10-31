@@ -7,16 +7,30 @@
 /**
  * Struct that implements a tree
  * 
+ * pi = tree's parent
  * value = tree's object (integer)
+ * bf = balance factor
  * left = tree's left branch
  * right = tree's right branch
 */
 typedef struct tree
 {
+    struct tree *pi;
     int value;
+    int bf;
     struct tree *left;
     struct tree *right;
 } Tree;
+
+/**
+ * Struct sentinel for the bst
+ * 
+ * root = tree's root
+*/
+typedef struct bst
+{
+    Tree *root;
+} BST;
 
 /**
  * Function that initialize a new tree
