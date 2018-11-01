@@ -7,7 +7,6 @@
 /**
  * Struct that implements a tree
  * 
- * pi = tree's parent
  * value = tree's object (integer)
  * bf = balance factor
  * amount = amont of values with this same value
@@ -16,10 +15,9 @@
 */
 typedef struct tree
 {
-    struct tree *pi;
     int value;
-    int bf;
     unsigned amount;
+    int bf;
     struct tree *left;
     struct tree *right;
 } Tree;

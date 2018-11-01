@@ -38,10 +38,11 @@ Tree *bst_Insert(Tree *root, int value)
         root = (Tree *)malloc(sizeof(Tree));            // Allocates a new Tree.
         root->value = value;                            // Set new Tree's value.
         root->left = root->right = NULL;                // Set branches as null.
-        root->amount = 1;
+        root->amount = 1;                               // Set initial amount as 1.
+        root->bf = 0;                                   // Set initial balance factor as 0
     }
-    //else if (value == root->value)
-    //    root->amount++;
+    else if (value == root->value)                      // Else, if root's value and value are equals, root's amount is incremented
+        root->amount++;
     else if (value < root->value)                       // Else, if the value is smaller than root's value.
         root->left = bst_Insert(root->left, value);     // It will be inserted in the left branch.
     else
@@ -60,11 +61,11 @@ Tree *bst_Remove(Tree *root, int value)
         root->right = bst_Remove(root->right, value);   // It will be removed from the root's right branch.
     else                                                // Else, root's value is equal to the value and the target to be removed.
     {
-        /*if (root->amount > 1)
+        if (root->amount > 1)                           // If amount is bigger than one it is decremented
         {
             root->amount--;
         }
-        else*/ if (root->left == NULL && root->right == NULL)  // If both branches are null:
+        else if (root->left == NULL && root->right == NULL)  // Else, if both branches are null:
         {
             free(root);                                 // Frees the root tree.
             root = NULL;                                // Set return value as null.
@@ -89,7 +90,9 @@ Tree *bst_Remove(Tree *root, int value)
                 f = f->right;
             }
             root->value = f->value;                     // Exchanging it for root.
+            root->amount = f->amount;
             f->value = value;
+            f->amount = 1;
             root->left = bst_Remove(root->left, value); // Removing, than, the value from the root's left branch.
         }
     }
