@@ -23,16 +23,6 @@ typedef struct tree
 } Tree;
 
 /**
- * Struct sentinel for the bst
- * 
- * root = tree's root
-*/
-typedef struct bst
-{
-    Tree *root;
-} BST;
-
-/**
  * Function that initialize a new tree
  * 
  * output: a new Tree pointer
